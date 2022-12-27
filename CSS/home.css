@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url("../Images/background.jpg");
+    background-size: 100vw 70vh;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: #092849;
+}
+
+.cover {
+    height: 100vh;
+    background-color: #0928498e;
+}
+
+.top {
+    height: 65vh;
+}
+
+.page {
+    background-color: #092849;
+    width: 100%;
+}
+
+.top section {
+    width: 80vw;
+    height: 100px;
+    position: absolute;
+    margin: auto;
+    left: 10vw;
+    top: 20vh;
+}
+
+.top section h1 {
+    color: white;
+    font-size: 40px;
+    margin-bottom: 1px;
+    text-align: center;
+}
+
+.top section hr {
+    height: 3px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+#message {
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+}
+
+#message p {
+    color: white;
+    font-size: 40px;
+    margin-top: 0;
+    margin-right: 2vh;
+}
+
+#message button {
+    width: 130px;
+    height: 40px;
+    background: transparent;
+    border: 3px solid white;
+    color: white;
+    border-radius: 20px;
+}
+
+.feature {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px 2px;
+    height: 400px;
+}
+
+.feature .car {
+    box-sizing: border-box;
+    color: white;
+    margin-bottom: 0;
+}
+
+.feature .car button {
+    margin-bottom: 0;
+}
+
+.feature .car p {
+    margin-top: 0;
+}
+
+.feature #id00 {
+    background-color: rgba(81, 176, 207, 0.658);
+}

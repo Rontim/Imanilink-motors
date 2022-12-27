@@ -1,0 +1,36 @@
+.card {
+    display: grid;
+    height: 90vh;
+    grid-column: 1;
+    justify-content: center;
+}
+
+.image {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 20px;
+    overflow: hidden;
+}
+
+.image img {
+    width: 520px;
+    height: 350px;
+    display: block;
+    transition: transform .8s ease-in;
+}
+
+.image:hover img {
+    transform: scale(1.1);
+    transform-origin: 50% 50%;
+}
+
+.details {
+    display: flex;
+    height: 45vh;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+tr .bc {
+    background-color: #efefef;
+}
