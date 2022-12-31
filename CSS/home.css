@@ -1,92 +1,310 @@
-body {
-    margin: 0;
-    padding: 0;
-    background: url("../Images/background.jpg");
-    background-size: 100vw 70vh;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-color: #092849;
-}
-
-.cover {
-    height: 100vh;
-    background-color: #0928498e;
-}
-
-.top {
-    height: 65vh;
-}
-
-.page {
-    background-color: #092849;
-    width: 100%;
-}
-
-.top section {
-    width: 80vw;
-    height: 100px;
-    position: absolute;
-    margin: auto;
-    left: 10vw;
-    top: 20vh;
-}
-
-.top section h1 {
-    color: white;
-    font-size: 40px;
-    margin-bottom: 1px;
-    text-align: center;
-}
-
-.top section hr {
-    height: 3px;
-    background-color: white;
-    border-radius: 50%;
-}
-
-#message {
-    display: flex;
-    justify-content: center;
-    padding: 3px;
-}
-
-#message p {
-    color: white;
-    font-size: 40px;
-    margin-top: 0;
-    margin-right: 2vh;
-}
-
-#message button {
-    width: 130px;
-    height: 40px;
-    background: transparent;
-    border: 3px solid white;
-    color: white;
-    border-radius: 20px;
-}
-
-.feature {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px 2px;
-    height: 400px;
-}
-
-.feature .car {
-    box-sizing: border-box;
-    color: white;
-    margin-bottom: 0;
-}
-
-.feature .car button {
-    margin-bottom: 0;
-}
-
-.feature .car p {
-    margin-top: 0;
-}
-
-.feature #id00 {
-    background-color: rgba(81, 176, 207, 0.658);
-}
+    @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic");
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #092849;
+        color: white;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    
+    .blur {
+        height: 100%;
+        background-color: #0928498e;
+    }
+    
+    .top {
+        height: 60vh;
+        background: url("../Images/background3.jpg");
+        background-size: 100vw 60vh;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+    
+    @media (max-width:900px) {
+        .top {
+            height: 45vh;
+            background: url("../Images/background3.jpg");
+            background-size: 100vw 45vh;
+        }
+    }
+    
+    .page {
+        background-color: #092849;
+        width: 100%;
+    }
+    
+    .top section {
+        width: 80vw;
+        height: 100px;
+        margin-left: 10vw;
+        margin-top: 10vh;
+    }
+    
+    .top section h1 {
+        color: white;
+        font-size: x-large;
+        margin-bottom: 1px;
+        text-align: center;
+    }
+    
+    @media (max-width:1200px) {
+        .top section h1 {
+            font-size: large;
+        }
+    }
+    
+    .top section hr {
+        height: 3px;
+        background-color: white;
+        border-radius: 50%;
+    }
+    
+    #message {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3px;
+        height: 10vh;
+    }
+    
+    #message h1 {
+        color: white;
+        margin-top: 0;
+        margin-right: 2vh;
+        letter-spacing: 3px;
+        font-size: 60%;
+        vertical-align: middle;
+        text-transform: uppercase;
+    }
+    /* Button */
+    
+    button {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        -moz-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+        -webkit-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+        -ms-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+        transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+        background-color: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: inset 0 0 0 2px #ffffff;
+        color: #ffffff;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 0.8em;
+        font-weight: 600;
+        height: 3.5em;
+        letter-spacing: 0.25em;
+        line-height: 3.5em;
+        padding: 0 1.75em;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+    /* Featured cars */
+    
+    .feature {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        grid-template-rows: repeat(2, 400px);
+        overflow: hidden;
+    }
+    
+    @media (max-width:1200px) {
+        .feature {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 40vh);
+        }
+        .car .car-content {
+            width: 80%;
+            height: 90%;
+            margin: auto;
+            padding-top: 0;
+            padding-bottom: 10%;
+        }
+    }
+    
+    .feature .car {
+        box-sizing: border-box;
+        color: white;
+        height: 100%;
+        margin-bottom: 0;
+    }
+    
+    .car {
+        overflow: hidden;
+    }
+    
+    .car:hover .car-content {
+        color: #ffffff;
+        transform: scale(1.1);
+    }
+    
+    .feature .car button {
+        margin-bottom: 0;
+    }
+    
+    .feature .car p {
+        margin-top: 0;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+    
+    .feature .car h3 {
+        margin-top: 2%;
+        margin-bottom: 2%;
+        font-size: 120%;
+    }
+    
+    .feature #id00 {
+        background-color: rgba(173, 216, 230, 0.514);
+        transition: background-color 1s ease-in-out;
+    }
+    
+    .feature #id00:hover {
+        background-color: rgba(199, 91, 91, 0);
+    }
+    
+    .feature #id01 {
+        background-color: rgba(173, 216, 230, 0.521);
+        transition: background-color 1s ease-in-out;
+    }
+    
+    .feature #id01:hover {
+        background-color: rgba(0, 0, 255, 0);
+    }
+    
+    .feature button {
+        width: 25vh;
+    }
+    
+    .viewAll-btn {
+        margin: 8vh;
+    }
+    
+    .feature #id02 {
+        background-color: rgba(173, 216, 230, 0.5);
+        transition: background-color 1s ease-in-out;
+    }
+    
+    .feature #id02:hover {
+        background-color: rgba(0, 128, 0, 0);
+    }
+    
+    .feature #id03 {
+        background-color: rgba(208, 230, 173, 0.5);
+        transition: background-color 1s ease-in-out;
+    }
+    
+    .feature #id03:hover {
+        background-color: rgba(0, 128, 0, 0);
+    }
+    
+    .feature #id04 {
+        background-color: rgba(173, 216, 230, 0.5);
+        transition: background-color 1s ease-in-out;
+    }
+    
+    .feature #id04:hover {
+        background-color: rgba(0, 128, 0, 0);
+    }
+    
+    .feature #id05 {
+        background-color: rgba(230, 215, 173, 0.5);
+        transition: background-color 1s ease-in-out;
+    }
+    
+    .feature #id05:hover {
+        background-color: rgba(0, 128, 0, 0);
+    }
+    
+    .car .car-content {
+        width: 80%;
+        height: 80%;
+        margin: auto;
+        padding-top: 10%;
+        transition: transform 1s ease-in-out;
+    }
+    
+    hr#divider {
+        width: 80vw;
+        margin-left: 8vw;
+        margin-bottom: 10vh;
+    }
+    /* About */
+    
+    #about {
+        margin-left: 8vw;
+        width: 80vw;
+        margin-bottom: 10vh;
+    }
+    
+    #about .h1 {
+        width: 26vw;
+    }
+    
+    .h1 hr {
+        width: 145px;
+        margin-left: 0;
+        transition: width .5s ease-out;
+    }
+    
+    .h1 h1 {
+        text-align: justify;
+        font-size: 29px;
+        margin-bottom: 1.5vh;
+    }
+    
+    .h1:hover hr {
+        width: 72px;
+    }
+    
+    #about p {
+        margin-top: 5vh;
+        text-align: justify;
+        margin-bottom: 5vh;
+        font-size: clamp(5px, 3vw, 20px);
+    }
+    
+    #about img {
+        box-sizing: border-box;
+        width: 100%;
+        height: 55vh;
+        opacity: 0.8;
+    }
+    
+    @media (max-width: 500px) {
+        #about img {
+            height: 40vh;
+        }
+    }
+    /* Arrows */
+    
+    .arrows {
+        width: 10px;
+    }
+    /* Footer */
+    
+    footer {
+        width: 100%;
+        height: 10vh;
+        background-color: #021a33d7;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+    }
+    
+    footer p {
+        text-align: center;
+        opacity: 0.3;
+        transition: opacity 1s ease;
+    }
+    
+    footer p:hover {
+        opacity: 0.9;
+    }

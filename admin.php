@@ -225,7 +225,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <br>
             <input id="submit" type="submit" value="+ Add">
         </div>
-    </form> <?php
+    </form>
+    <script src="hamburger.js"></script> <?php
     $query = $conn->prepare("INSERT INTO cars(make, model, year, date_added, color, engine, transmission, mileage, price, location, features, fuel, imageurl) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);");
     $query->bind_param("ssisdsissssss", $make, $model, $year, $date, $color, $engine, $transmission, $mileage, $price, $location, $features, $fuel, $imageurl);
     $query->execute();
