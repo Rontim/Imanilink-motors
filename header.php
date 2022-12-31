@@ -17,9 +17,17 @@
                     <a href="cars.php">Cars</a>
                 </li> <?php if (isset($_SESSION["username"])){
                     echo <<< log
+                    <li class="nav-item action">
+                        <a href="#">Account</a>
+                    </li>
+                    <div class="drop-down">
                         <li class="nav-item">
                             <a href="logout.php">Log out</a>
+                        </li><li class="nav-item">
+                            <a href="account.php">View Account</a>
                         </li>
+                    </div>
+
                     log;
                 }
                  else {
