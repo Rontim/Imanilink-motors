@@ -4,7 +4,7 @@
 
   if (isset($_SERVER["REQUEST_METHOD"]) == "GET"){
       $carId = $_GET["carId"];
-      $query = "SELECT * FROM cars WHERE car_id = {$_GET["carId"]}";
+      $query = "SELECT * FROM vehicles WHERE car_id = {$_GET["carId"]}";
       $result = $conn->query($query);
       $row = $result->fetch_assoc();
 
@@ -19,17 +19,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <?php
         echo <<<title
-        <title>{$row["model"]} {$row["year"]}</title>
+        <title>{$row["make"]} {$row["model"]} {$row["year"]}</title>
         title;
     ?>
+    <link rel="stylesheet" href="/CSS/header.css" type="text/css">
+    <link rel="icon" type="image/x-icon" href="/Images/favicon.ico">
+    <link rel="stylesheet" href="/CSS/home.css" type="text/css">
     <link rel="stylesheet" href="./CSS/more.css" type="text/CSS">
 </head>
 
 <body>
+    <header> <?php include "header.php";?><br>
+    </header>
     <div class="card"> <?php
             echo <<< div
             <div class="image">
-                <img src="{$row["imageurl"]}.jpg">
+                <img src="{$row["imagePATH"]}.jpg">
             </div>
             <div class="details">
                 <table>
@@ -46,20 +51,20 @@
                         <td class="bc">{$row["year"]}</td>
                     </tr>
                     <tr>
-                        <th class="bc">Features</th>
-                        <td class="df">{$row["features"]}</td>
+                        <th>Engine Type</th>
+                        <td>{$row["engine_type"]}</td>
+                    </tr>
+                    <tr>
+                        <th>Fuel Info</th>
+                        <td>{$row["fuel_type"]}</td>
                     </tr>
                     <tr>
                         <th></th>
-                        <td>{$row["engine"]}</td>
+                        <td>{$row["fuel_capacity"]}</td>
                     </tr>
                     <tr>
                         <th></th>
-                        <td>{$row["fuel"]}</td>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <td>{$row["color"]}</td>
+                        <td>{$row["fuel_economy"]}</td>
                     </tr>
                     <tr>
                         <th>Transmission</th>
@@ -77,6 +82,7 @@
             </div>
             div;
         ?> </div>
+    <script src="hamburger.js"></script>
 </body>
 
 </html>

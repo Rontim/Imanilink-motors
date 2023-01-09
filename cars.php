@@ -4,25 +4,34 @@
 
     $make = 'all';
     $year = 'all';
+    $model = 'all';
 
     if (isset($_GET['make'])) {
-    $make = $_GET['make'];
-    $year = $_GET['year'];
+        $make = $_GET['make'];
+        $year = $_GET['year'];
+    }
+
+    if (isset($_GET['model'])) {
+        $model = $_GET['model'];
     }
 
     $sql = "SELECT * FROM vehicles WHERE 1=1";
 
-    // if ($make == 'all' && $year =='all'){
-    //     $sql .= " WHERE 1=1";
-    // }
+    if ($make == 'all' && $year =='all' && $model){
+         $sql .= " ORDER BY make";
+    }
 
     if ($make != 'all') {
-    $sql .= " make='$make'";
+    $sql .= " AND make='$make'";
     }
 
 
     if ($year != 'all') {
     $sql .= " AND year='$year'";
+    }
+
+    if ($model != 'all') {
+        $sql .= " AND model='$model'";
     }
 
     $result = mysqli_query($conn, $sql);
@@ -44,11 +53,13 @@
     <link rel="stylesheet" href="/CSS/header.css" type="text/css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="/CSS/home.css" type="text/css">
-    <title>Document</title>
+    <title>Cars Page</title>
 </head>
 
-<body> <?php
-        $quary = "SELECT * FROM vehicles";
+<body>
+    <header> <?php include "header.php";?><br>
+    </header> <?php
+        $quary = "SELECT make FROM vehicles";
         $res = $conn->query($quary);
         echo <<< form
             <form class="filters" action="cars.php" method="GET">
@@ -56,40 +67,71 @@
             <select id="type" name="make">
                 <option value='all'>All</option>
         form;
-        while ($row = $res->fetch_assoc()){
+        while ($row = $res->fetch_column()){
             echo <<< make
-                <option value='{$row["make"]}'>{$row["make"]}</option>
+                <option value='{$row}'>{$row}</option>
             make;
         }
         ?> </select>
     <label for="year">Year </label>
     <select id="year" name="year">
         <option value='all'>All</option><?php
-            $quary = "SELECT * FROM vehicles order by year";
+            $quary = "SELECT year FROM vehicles order by year";
             $res2 = $conn->query($quary);
-            while ($row = $res2->fetch_assoc()){
+
+            while ($row = $res2->fetch_column()){
                 echo <<< make
-                    <option value='{$row["year"]}'>{$row["year"]}</option>
+                    <option value='{$row}'>{$row}</option>
                 make;
             }
         ?>
-    </select>
+    </select> <?php
+        if ($make != 'all') {
+            echo <<< model
+                <label for="model">Model </label>
+                <select id="model" name="model">
+                    <option value='all'>All</option>
+            model;
+            $quary = "SELECT model FROM vehicles WHERE make = '$make'";
+            $res3 = $conn->query($quary);
+
+            while ($row = $res3->fetch_column()){
+                echo <<< make
+                    <option value='{$row}'>{$row}</option>
+                make;
+            }
+        }
+    ?> </select>
     <button type="submit">Filter</button>
     </form>
-    <!-- Car list --> <?php
+    <div class="cars-page"> <?php
     while ($row = mysqli_fetch_array($result)) {
-        echo '<div class="car">';
-        echo '<img src="' . $row['imagePATH'] . '.jpg" alt="' . $row['model'] . '" style="width:50%;">';
-        echo '<h3>' . $row['model'] . '</h3>';
-        // echo '<p>' . $row['description'] . '</p>';
-        // echo '<p>Location: ' . $row['location'] . '</p>';
-        echo '<button class="btn-secondary">View details</button>';
-        echo '</div>';
+        echo <<< car
+            <div class="cars">
+                <div id="img" style="background-image: url('{$row['imagePATH']}.jpg');background-position: center;
+                background-repeat: no-repeat;
+                background-size: 96% 96%;">
+                    <div id="right">
+                        <h3>{$row['make']} {$row['model']}</h3>
+                        <form action='featured_more.php' method='GET'>
+                            <input type='hidden' name='carId' value='{$row['car_id']}'>
+                            <button type='submit'> VIEW CAR <span class='arrows'>➣</span></button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            car;
       }
 
       // Close the connection
       mysqli_close($conn);
-    ?> <script src="hamburger.js"></script>
+
+    ?> </div>
+    <footer id="footer">
+        <p> &COPY; 2023 imanilink motors</p>
+    </footer>
+    <script src="hamburger.js"></script>
 </body>
 
 </html>

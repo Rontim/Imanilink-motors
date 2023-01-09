@@ -140,11 +140,6 @@
         overflow: hidden;
     }
     
-    .car:hover .car-content {
-        color: #ffffff;
-        transform: scale(1.1);
-    }
-    
     .feature .car button {
         margin-bottom: 0;
     }
@@ -167,7 +162,7 @@
     }
     
     .feature #id00:hover {
-        background-color: rgba(199, 91, 91, 0);
+        background-color: rgba(173, 216, 230, 0);
     }
     
     .feature #id01 {
@@ -176,7 +171,7 @@
     }
     
     .feature #id01:hover {
-        background-color: rgba(0, 0, 255, 0);
+        background-color: rgba(173, 216, 230, 0);
     }
     
     .feature button {
@@ -193,7 +188,7 @@
     }
     
     .feature #id02:hover {
-        background-color: rgba(0, 128, 0, 0);
+        background-color: rgba(173, 216, 230, 0);
     }
     
     .feature #id03 {
@@ -202,7 +197,7 @@
     }
     
     .feature #id03:hover {
-        background-color: rgba(0, 128, 0, 0);
+        background-color: rgba(208, 230, 173, 0);
     }
     
     .feature #id04 {
@@ -216,7 +211,7 @@
     
     .feature #id05 {
         background-color: rgba(230, 215, 173, 0.5);
-        transition: background-color 1s ease-in-out;
+        transition: background-color .8s ease-in-out;
     }
     
     .feature #id05:hover {
@@ -307,4 +302,40 @@
     
     footer p:hover {
         opacity: 0.9;
+    }
+    /* cars page */
+    
+    .cars-page {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2%;
+        margin: 2vh;
+    }
+    
+    .cars-page .cars {
+        box-sizing: border-box;
+        display: flex;
+        height: 50vh;
+        padding: 5px;
+        background-color: yellow;
+    }
+    
+    .cars #right {
+        display: none;
+        transition: all .9s ease;
+    }
+    
+    .cars:hover #right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.507);
+    }
+    
+    #img {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
     }
